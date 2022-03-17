@@ -1,2 +1,2 @@
 # CareURDF
-Generate URDF from SMPL-X model
+Generate URDF from SMPL and SMPL-X model
