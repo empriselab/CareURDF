@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+<name>smplx_description</name>
+<version>0.0.1</version>
+<description>smpl</description>
+<maintainer email="vinjohn@sjtu.edu.cn">WenqiangXu</maintainer>
+<license>MIT</license>
+<author>WenqiangXu</author>
+<buildtool_depend>catkin</buildtool_depend>
+<run_depend>robot_state_publisher</run_depend>
+<run_depend>joint_state_publisher</run_depend>
+<run_depend>tf2_ros</run_depend>
+<run_depend>rviz</run_depend>
+</package>

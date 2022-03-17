@@ -1,0 +1,904 @@
+<robot name="smplx_f_for_moveit">
+   <link name="f_avg_root">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="0" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial></link>
+   <link name="f_avg_Pelvis">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_Pelvis.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_Pelvis.stl" /></geometry>
+       </collision></link>
+   <joint name="f_avg_Pelvis_joint" type="fixed">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_root" />
+       <child link="f_avg_Pelvis" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="0" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_L_Hip">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Hip.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Hip.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_Pelvis_f_avg_L_Hip_rot_link_x></link>
+   <link name=f_avg_Pelvis_f_avg_L_Hip_rot_link_y></link>
+   <joint name="f_avg_Pelvis_f_avg_L_Hip_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Pelvis" />
+       <child link="f_avg_Pelvis_f_avg_L_Hip_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Pelvis_f_avg_L_Hip_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Pelvis_f_avg_L_Hip_rot_link_x" />
+       <child link="f_avg_Pelvis_f_avg_L_Hip_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Pelvis_f_avg_L_Hip_joint_z" type="revolute">
+       <origin xyz="0.07785970719977796 -0.2543636632319788 0.011061973235572684" rpy="0 0 0" />
+       <parent link="f_avg_Pelvis_f_avg_L_Hip_rot_link_y" />
+       <child link="f_avg_L_Hip" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_L_Knee">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Knee.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Knee.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_L_Hip_f_avg_L_Knee_rot_link_x></link>
+   <link name=f_avg_L_Hip_f_avg_L_Knee_rot_link_y></link>
+   <joint name="f_avg_L_Hip_f_avg_L_Knee_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Hip" />
+       <child link="f_avg_L_Hip_f_avg_L_Knee_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Hip_f_avg_L_Knee_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Hip_f_avg_L_Knee_rot_link_x" />
+       <child link="f_avg_L_Hip_f_avg_L_Knee_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Hip_f_avg_L_Knee_joint_z" type="revolute">
+       <origin xyz="0.01707470898883963 -0.36599418038187514 -0.053649756891219605" rpy="0 0 0" />
+       <parent link="f_avg_L_Hip_f_avg_L_Knee_rot_link_y" />
+       <child link="f_avg_L_Knee" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_L_Ankle">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Ankle.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Ankle.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_L_Knee_f_avg_L_Ankle_rot_link_x></link>
+   <link name=f_avg_L_Knee_f_avg_L_Ankle_rot_link_y></link>
+   <joint name="f_avg_L_Knee_f_avg_L_Ankle_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Knee" />
+       <child link="f_avg_L_Knee_f_avg_L_Ankle_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Knee_f_avg_L_Ankle_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Knee_f_avg_L_Ankle_rot_link_x" />
+       <child link="f_avg_L_Knee_f_avg_L_Ankle_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Knee_f_avg_L_Ankle_joint_z" type="revolute">
+       <origin xyz="0.007687709647147087 -0.2544174040915916 0.012453939001501525" rpy="0 0 0" />
+       <parent link="f_avg_L_Knee_f_avg_L_Ankle_rot_link_y" />
+       <child link="f_avg_L_Ankle" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_L_Foot">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Foot.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Foot.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_L_Ankle_f_avg_L_Foot_rot_link_x></link>
+   <link name=f_avg_L_Ankle_f_avg_L_Foot_rot_link_y></link>
+   <joint name="f_avg_L_Ankle_f_avg_L_Foot_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Ankle" />
+       <child link="f_avg_L_Ankle_f_avg_L_Foot_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Ankle_f_avg_L_Foot_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Ankle_f_avg_L_Foot_rot_link_x" />
+       <child link="f_avg_L_Ankle_f_avg_L_Foot_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Ankle_f_avg_L_Foot_joint_z" type="revolute">
+       <origin xyz="0.01272419648692806 -0.025104036356209128 0.13130926674836602" rpy="0 0 0" />
+       <parent link="f_avg_L_Ankle_f_avg_L_Foot_rot_link_y" />
+       <child link="f_avg_L_Foot" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_R_Hip">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Hip.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Hip.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_Pelvis_f_avg_R_Hip_rot_link_x></link>
+   <link name=f_avg_Pelvis_f_avg_R_Hip_rot_link_y></link>
+   <joint name="f_avg_Pelvis_f_avg_R_Hip_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Pelvis" />
+       <child link="f_avg_Pelvis_f_avg_R_Hip_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Pelvis_f_avg_R_Hip_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Pelvis_f_avg_R_Hip_rot_link_x" />
+       <child link="f_avg_Pelvis_f_avg_R_Hip_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Pelvis_f_avg_R_Hip_joint_z" type="revolute">
+       <origin xyz="-0.07639947838253348 -0.25468859340453687 0.009515017928465085" rpy="0 0 0" />
+       <parent link="f_avg_Pelvis_f_avg_R_Hip_rot_link_y" />
+       <child link="f_avg_R_Hip" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_R_Knee">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Knee.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Knee.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_R_Hip_f_avg_R_Knee_rot_link_x></link>
+   <link name=f_avg_R_Hip_f_avg_R_Knee_rot_link_y></link>
+   <joint name="f_avg_R_Hip_f_avg_R_Knee_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Hip" />
+       <child link="f_avg_R_Hip_f_avg_R_Knee_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Hip_f_avg_R_Knee_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Hip_f_avg_R_Knee_rot_link_x" />
+       <child link="f_avg_R_Hip_f_avg_R_Knee_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Hip_f_avg_R_Knee_joint_z" type="revolute">
+       <origin xyz="-0.018491082906326464 -0.3653480339931006 -0.05213707635888676" rpy="0 0 0" />
+       <parent link="f_avg_R_Hip_f_avg_R_Knee_rot_link_y" />
+       <child link="f_avg_R_Knee" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_R_Ankle">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Ankle.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Ankle.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_R_Knee_f_avg_R_Ankle_rot_link_x></link>
+   <link name=f_avg_R_Knee_f_avg_R_Ankle_rot_link_y></link>
+   <joint name="f_avg_R_Knee_f_avg_R_Ankle_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Knee" />
+       <child link="f_avg_R_Knee_f_avg_R_Ankle_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Knee_f_avg_R_Ankle_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Knee_f_avg_R_Ankle_rot_link_x" />
+       <child link="f_avg_R_Knee_f_avg_R_Ankle_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Knee_f_avg_R_Ankle_joint_z" type="revolute">
+       <origin xyz="-0.007273292042042093 -0.2540918772522524 0.016340304054054053" rpy="0 0 0" />
+       <parent link="f_avg_R_Knee_f_avg_R_Ankle_rot_link_y" />
+       <child link="f_avg_R_Ankle" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_R_Foot">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Foot.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Foot.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_R_Ankle_f_avg_R_Foot_rot_link_x></link>
+   <link name=f_avg_R_Ankle_f_avg_R_Foot_rot_link_y></link>
+   <joint name="f_avg_R_Ankle_f_avg_R_Foot_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Ankle" />
+       <child link="f_avg_R_Ankle_f_avg_R_Foot_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Ankle_f_avg_R_Foot_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Ankle_f_avg_R_Foot_rot_link_x" />
+       <child link="f_avg_R_Ankle_f_avg_R_Foot_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Ankle_f_avg_R_Foot_joint_z" type="revolute">
+       <origin xyz="-0.011502875816993413 -0.026503220588235305 0.13183228676470593" rpy="0 0 0" />
+       <parent link="f_avg_R_Ankle_f_avg_R_Foot_rot_link_y" />
+       <child link="f_avg_R_Foot" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_Spine1">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_Spine1.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_Spine1.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_Pelvis_f_avg_Spine1_rot_link_x></link>
+   <link name=f_avg_Pelvis_f_avg_Spine1_rot_link_y></link>
+   <joint name="f_avg_Pelvis_f_avg_Spine1_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Pelvis" />
+       <child link="f_avg_Pelvis_f_avg_Spine1_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Pelvis_f_avg_Spine1_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Pelvis_f_avg_Spine1_rot_link_x" />
+       <child link="f_avg_Pelvis_f_avg_Spine1_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Pelvis_f_avg_Spine1_joint_z" type="revolute">
+       <origin xyz="0.00010098780517787877 0.14992921772838796 0.014098467533744765" rpy="0 0 0" />
+       <parent link="f_avg_Pelvis_f_avg_Spine1_rot_link_y" />
+       <child link="f_avg_Spine1" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_Spine2">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_Spine2.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_Spine2.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_Spine1_f_avg_Spine2_rot_link_x></link>
+   <link name=f_avg_Spine1_f_avg_Spine2_rot_link_y></link>
+   <joint name="f_avg_Spine1_f_avg_Spine2_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Spine1" />
+       <child link="f_avg_Spine1_f_avg_Spine2_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Spine1_f_avg_Spine2_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Spine1_f_avg_Spine2_rot_link_x" />
+       <child link="f_avg_Spine1_f_avg_Spine2_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Spine1_f_avg_Spine2_joint_z" type="revolute">
+       <origin xyz="0.001850607091330434 0.09247726448942695 0.03144622458794209" rpy="0 0 0" />
+       <parent link="f_avg_Spine1_f_avg_Spine2_rot_link_y" />
+       <child link="f_avg_Spine2" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_Spine3">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_Spine3.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_Spine3.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_Spine2_f_avg_Spine3_rot_link_x></link>
+   <link name=f_avg_Spine2_f_avg_Spine3_rot_link_y></link>
+   <joint name="f_avg_Spine2_f_avg_Spine3_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Spine2" />
+       <child link="f_avg_Spine2_f_avg_Spine3_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Spine2_f_avg_Spine3_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Spine2_f_avg_Spine3_rot_link_x" />
+       <child link="f_avg_Spine2_f_avg_Spine3_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Spine2_f_avg_Spine3_joint_z" type="revolute">
+       <origin xyz="-0.0003665883916060647 0.12654608146084767 -0.06205949133306165" rpy="0 0 0" />
+       <parent link="f_avg_Spine2_f_avg_Spine3_rot_link_y" />
+       <child link="f_avg_Spine3" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_Neck">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_Neck.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_Neck.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_Spine3_f_avg_Neck_rot_link_x></link>
+   <link name=f_avg_Spine3_f_avg_Neck_rot_link_y></link>
+   <joint name="f_avg_Spine3_f_avg_Neck_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Spine3" />
+       <child link="f_avg_Spine3_f_avg_Neck_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Spine3_f_avg_Neck_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Spine3_f_avg_Neck_rot_link_x" />
+       <child link="f_avg_Spine3_f_avg_Neck_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Spine3_f_avg_Neck_joint_z" type="revolute">
+       <origin xyz="-0.00039202784346708706 0.14198288080937793 0.007753725869489936" rpy="0 0 0" />
+       <parent link="f_avg_Spine3_f_avg_Neck_rot_link_y" />
+       <child link="f_avg_Neck" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_Head">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_Head.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_Head.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_Neck_f_avg_Head_rot_link_x></link>
+   <link name=f_avg_Neck_f_avg_Head_rot_link_y></link>
+   <joint name="f_avg_Neck_f_avg_Head_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Neck" />
+       <child link="f_avg_Neck_f_avg_Head_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Neck_f_avg_Head_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Neck_f_avg_Head_rot_link_x" />
+       <child link="f_avg_Neck_f_avg_Head_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Neck_f_avg_Head_joint_z" type="revolute">
+       <origin xyz="-0.0012644804597700934 0.10361500591133077 0.04879245402298857" rpy="0 0 0" />
+       <parent link="f_avg_Neck_f_avg_Head_rot_link_y" />
+       <child link="f_avg_Head" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_L_Collar">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Collar.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Collar.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_Spine3_f_avg_L_Collar_rot_link_x></link>
+   <link name=f_avg_Spine3_f_avg_L_Collar_rot_link_y></link>
+   <joint name="f_avg_Spine3_f_avg_L_Collar_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Spine3" />
+       <child link="f_avg_Spine3_f_avg_L_Collar_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Spine3_f_avg_L_Collar_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Spine3_f_avg_L_Collar_rot_link_x" />
+       <child link="f_avg_Spine3_f_avg_L_Collar_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Spine3_f_avg_L_Collar_joint_z" type="revolute">
+       <origin xyz="0.14085290048165613 0.06116842095716213 -0.03189504087927856" rpy="0 0 0" />
+       <parent link="f_avg_Spine3_f_avg_L_Collar_rot_link_y" />
+       <child link="f_avg_L_Collar" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_L_Shoulder">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Shoulder.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Shoulder.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_L_Collar_f_avg_L_Shoulder_rot_link_x></link>
+   <link name=f_avg_L_Collar_f_avg_L_Shoulder_rot_link_y></link>
+   <joint name="f_avg_L_Collar_f_avg_L_Shoulder_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Collar" />
+       <child link="f_avg_L_Collar_f_avg_L_Shoulder_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Collar_f_avg_L_Shoulder_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Collar_f_avg_L_Shoulder_rot_link_x" />
+       <child link="f_avg_L_Collar_f_avg_L_Shoulder_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Collar_f_avg_L_Shoulder_joint_z" type="revolute">
+       <origin xyz="0.14099214241507663 -0.01902793268962455 0.003790268939041424" rpy="0 0 0" />
+       <parent link="f_avg_L_Collar_f_avg_L_Shoulder_rot_link_y" />
+       <child link="f_avg_L_Shoulder" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_L_Elbow">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Elbow.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Elbow.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_L_Shoulder_f_avg_L_Elbow_rot_link_x></link>
+   <link name=f_avg_L_Shoulder_f_avg_L_Elbow_rot_link_y></link>
+   <joint name="f_avg_L_Shoulder_f_avg_L_Elbow_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Shoulder" />
+       <child link="f_avg_L_Shoulder_f_avg_L_Elbow_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Shoulder_f_avg_L_Elbow_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Shoulder_f_avg_L_Elbow_rot_link_x" />
+       <child link="f_avg_L_Shoulder_f_avg_L_Elbow_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Shoulder_f_avg_L_Elbow_joint_z" type="revolute">
+       <origin xyz="0.24435600568760185 0.010698818403910515 -0.00504579650600567" rpy="0 0 0" />
+       <parent link="f_avg_L_Shoulder_f_avg_L_Elbow_rot_link_y" />
+       <child link="f_avg_L_Elbow" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_L_Wrist">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Wrist.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Wrist.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_L_Elbow_f_avg_L_Wrist_rot_link_x></link>
+   <link name=f_avg_L_Elbow_f_avg_L_Wrist_rot_link_y></link>
+   <joint name="f_avg_L_Elbow_f_avg_L_Wrist_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Elbow" />
+       <child link="f_avg_L_Elbow_f_avg_L_Wrist_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Elbow_f_avg_L_Wrist_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Elbow_f_avg_L_Wrist_rot_link_x" />
+       <child link="f_avg_L_Elbow_f_avg_L_Wrist_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Elbow_f_avg_L_Wrist_joint_z" type="revolute">
+       <origin xyz="0.18141500915727404 -0.011628677868853687 0.01648911737961062" rpy="0 0 0" />
+       <parent link="f_avg_L_Elbow_f_avg_L_Wrist_rot_link_y" />
+       <child link="f_avg_L_Wrist" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_L_Hand">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Hand.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_L_Hand.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_L_Wrist_f_avg_L_Hand_rot_link_x></link>
+   <link name=f_avg_L_Wrist_f_avg_L_Hand_rot_link_y></link>
+   <joint name="f_avg_L_Wrist_f_avg_L_Hand_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Wrist" />
+       <child link="f_avg_L_Wrist_f_avg_L_Hand_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Wrist_f_avg_L_Hand_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_L_Wrist_f_avg_L_Hand_rot_link_x" />
+       <child link="f_avg_L_Wrist_f_avg_L_Hand_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_L_Wrist_f_avg_L_Hand_joint_z" type="revolute">
+       <origin xyz="0.0740662533503107 0.004793970587299912 -0.037440068661467416" rpy="0 0 0" />
+       <parent link="f_avg_L_Wrist_f_avg_L_Hand_rot_link_y" />
+       <child link="f_avg_L_Hand" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_R_Collar">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Collar.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Collar.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_Spine3_f_avg_R_Collar_rot_link_x></link>
+   <link name=f_avg_Spine3_f_avg_R_Collar_rot_link_y></link>
+   <joint name="f_avg_Spine3_f_avg_R_Collar_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Spine3" />
+       <child link="f_avg_Spine3_f_avg_R_Collar_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Spine3_f_avg_R_Collar_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_Spine3_f_avg_R_Collar_rot_link_x" />
+       <child link="f_avg_Spine3_f_avg_R_Collar_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_Spine3_f_avg_R_Collar_joint_z" type="revolute">
+       <origin xyz="-0.13829972094691537 0.05979747810001923 -0.03508551945070709" rpy="0 0 0" />
+       <parent link="f_avg_Spine3_f_avg_R_Collar_rot_link_y" />
+       <child link="f_avg_R_Collar" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_R_Shoulder">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Shoulder.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Shoulder.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_R_Collar_f_avg_R_Shoulder_rot_link_x></link>
+   <link name=f_avg_R_Collar_f_avg_R_Shoulder_rot_link_y></link>
+   <joint name="f_avg_R_Collar_f_avg_R_Shoulder_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Collar" />
+       <child link="f_avg_R_Collar_f_avg_R_Shoulder_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Collar_f_avg_R_Shoulder_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Collar_f_avg_R_Shoulder_rot_link_x" />
+       <child link="f_avg_R_Collar_f_avg_R_Shoulder_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Collar_f_avg_R_Shoulder_joint_z" type="revolute">
+       <origin xyz="-0.14471424509803937 -0.020104663258637467 0.003633860037348245" rpy="0 0 0" />
+       <parent link="f_avg_R_Collar_f_avg_R_Shoulder_rot_link_y" />
+       <child link="f_avg_R_Shoulder" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_R_Elbow">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Elbow.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Elbow.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_R_Shoulder_f_avg_R_Elbow_rot_link_x></link>
+   <link name=f_avg_R_Shoulder_f_avg_R_Elbow_rot_link_y></link>
+   <joint name="f_avg_R_Shoulder_f_avg_R_Elbow_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Shoulder" />
+       <child link="f_avg_R_Shoulder_f_avg_R_Elbow_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Shoulder_f_avg_R_Elbow_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Shoulder_f_avg_R_Elbow_rot_link_x" />
+       <child link="f_avg_R_Shoulder_f_avg_R_Elbow_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Shoulder_f_avg_R_Elbow_joint_z" type="revolute">
+       <origin xyz="-0.2431619580269604 0.010967776986315236 -0.004094315282884002" rpy="0 0 0" />
+       <parent link="f_avg_R_Shoulder_f_avg_R_Elbow_rot_link_y" />
+       <child link="f_avg_R_Elbow" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_R_Wrist">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Wrist.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Wrist.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_R_Elbow_f_avg_R_Wrist_rot_link_x></link>
+   <link name=f_avg_R_Elbow_f_avg_R_Wrist_rot_link_y></link>
+   <joint name="f_avg_R_Elbow_f_avg_R_Wrist_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Elbow" />
+       <child link="f_avg_R_Elbow_f_avg_R_Wrist_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Elbow_f_avg_R_Wrist_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Elbow_f_avg_R_Wrist_rot_link_x" />
+       <child link="f_avg_R_Elbow_f_avg_R_Wrist_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Elbow_f_avg_R_Wrist_joint_z" type="revolute">
+       <origin xyz="-0.18362666736680344 -0.011993638434939058 0.016527244941086077" rpy="0 0 0" />
+       <parent link="f_avg_R_Elbow_f_avg_R_Wrist_rot_link_y" />
+       <child link="f_avg_R_Wrist" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <link name="f_avg_R_Hand">
+       <inertial>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <mass value="1" />
+           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+       </inertial>
+       <visual>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Hand.stl" /></geometry>
+           <material name=""><color rgba="0.827450980392157 0.83921568627451 0.827450980392157 1" /></material>
+       </visual>
+       <collision>
+           <origin xyz="0 0 0" rpy="0 0 0" />
+           <geometry><mesh filename="package://smplx_description/smplx_stl_normal/f_avg_R_Hand.stl" /></geometry>
+       </collision></link>
+   <link name=f_avg_R_Wrist_f_avg_R_Hand_rot_link_x></link>
+   <link name=f_avg_R_Wrist_f_avg_R_Hand_rot_link_y></link>
+   <joint name="f_avg_R_Wrist_f_avg_R_Hand_joint_x" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Wrist" />
+       <child link="f_avg_R_Wrist_f_avg_R_Hand_rot_link_x" />
+       <axis xyz="1 0 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Wrist_f_avg_R_Hand_joint_y" type="revolute">
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <parent link="f_avg_R_Wrist_f_avg_R_Hand_rot_link_x" />
+       <child link="f_avg_R_Wrist_f_avg_R_Hand_rot_link_y" />
+       <axis xyz="0 1 0" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+   <joint name="f_avg_R_Wrist_f_avg_R_Hand_joint_z" type="revolute">
+       <origin xyz="-0.07455958096450754 0.004839888715581386 -0.03861083269138947" rpy="0 0 0" />
+       <parent link="f_avg_R_Wrist_f_avg_R_Hand_rot_link_y" />
+       <child link="f_avg_R_Hand" />
+       <axis xyz="0 0 1" />
+       <limit lower="0" upper="3.141592653589793" effort="0" velocity="0" />
+   </joint>
+</robot>
